@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Printable Joystick."/>
+  <title>Home | Printable Joystick</title>
+  <link rel="icon" href="assets/shape_mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Printable Joystick logo">
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="#1f2a44" />
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <rect x="30" y="18" width="4" height="18" rx="2" fill="#4dd7c8"/>
+  <circle cx="32" cy="16" r="8" fill="#4dd7c8"/>
+  <circle cx="44" cy="43" r="5" fill="#ffcc66"/>
+  <circle cx="24" cy="43" r="5" fill="rgba(255,255,255,.22)"/>
+</svg></span>
+        <span>Printable Joystick</span>
+      </a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="accessibility.html">Accessibility</a></li>
+        <li><a href="license.html">License</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="imprint.html">Imprint</a></li>
+        <li><a href="copyright.html">Copyright & Licenses</a></li>
+        <li><a class="btn ghost" href="cart.html" aria-label="Open cart">Cart (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <div id="liveRegion" class="visually-hidden" aria-live="polite"></div>
+    
+<section class="hero">
+  <div class="card padded">
+    <span class="badge">Physical game • printable components</span>
+    <h1>Printable Joystick — "Print it, play it": Build your own controller, and play simple and fun games with friends or alone!</h1>
+    <p>
+      <strong>Printable Joystick</strong> is a physical party game: players print and assemble simple “controllers”
+      (paper and cardboard) that can be upgraded with 3d printing extra parts, then play fast mini-games driven by joystick moves.
+    </p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+      <a class="btn" href="products.html">Shop the game</a>
+      <a class="btn secondary" href="about.html">About the brand</a>
+      <a class="btn ghost" href="accessibility.html">Accessibility</a>
+    </div>
+    <hr/>
+    <div class="kpi" role="list">
+      <div class="k" role="listitem"><strong>Print & play</strong><span class="small">PDF pack + assembly guide.</span></div>
+      <div class="k" role="listitem"><strong>2–4 players</strong><span class="small">Quick rounds, easy setup.</span></div>
+      <div class="k" role="listitem"><strong>Accessible UI</strong><span class="small">Keyboard friendly, focus visible, labels, skip link.</span></div>
+    </div>
+  </div>
+
+  <aside class="card padded" aria-label="Joystick demo">
+    <h2 style="margin-top:0">Joystick demo</h2>
+    <p class="small">Tap a direction to hear a joystick “click” sound.</p>
+
+    <div class="card padded" style="background:rgba(255,255,255,.03)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" role="img" aria-label="Animated joystick illustration">
+        <rect x="10" y="10" width="540" height="200" rx="22" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.14)"/>
+        <g transform="translate(170,44)">
+          <rect x="0" y="76" width="220" height="70" rx="28" fill="rgba(31,42,68,.92)" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+          <rect x="108" y="24" width="4" height="66" rx="2" fill="rgba(77,215,200,.95)"/>
+          <circle cx="110" cy="20" r="22" fill="rgba(77,215,200,.95)">
+          </circle>
+          <circle cx="52" cy="114" r="12" fill="rgba(255,255,255,.20)"/>
+          <circle cx="170" cy="114" r="12" fill="rgba(255,204,102,.95)"/>
+        </g>
+      </svg>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:10px; align-items:center">
+        <span></span>
+        <button class="btn secondary" type="button" data-joy="up">Up</button>
+        <span></span>
+        <button class="btn secondary" type="button" data-joy="left">Left</button>
+        <button class="btn" type="button" data-joy="click">Click</button>
+        <button class="btn secondary" type="button" data-joy="right">Right</button>
+        <span></span>
+        <button class="btn secondary" type="button" data-joy="down">Down</button>
+        <span></span>
+      </div>
+      <p class="small" id="joyNote" aria-live="polite" style="margin:10px 0 0"></p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const note = document.getElementById("joyNote");
+        document.querySelectorAll("[data-joy]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const kind = btn.getAttribute("data-joy") || "click";
+            const ok = window.playJoystickSound ? window.playJoystickSound(kind === "click" ? "click" : "diagonal") : false;
+            setTimeout(()=>note.textContent="", 1200);
+          });
+        });
+      });
+    </script>
+  </aside>
+</section>
+
+<section>
+  <h2>What’s in the game</h2>
+  <div class="grid">
+    <div class="product">
+      <h3>Printable kit</h3>
+      <p class="small">Cutouts, cards, and a foldable “controller”.</p>
+    </div>
+    <div class="product">
+      <h3>Mini-challenges</h3>
+      <p class="small">Instructions and gamerules for a list of simple games.</p>
+    </div>
+    <div class="product">
+      <h3>Assembly guide</h3>
+      <p class="small">Simple step-by-step instructions with safety notes for paper cutouts and 3d prints with extra pre-made blueprints.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Box illustration</h2>
+  <div class="card padded">
+    <img src="assets/At_Tenerife.jpg" alt="Illustration of the Printable Joystick game box" style="width:20%; height:auto; border-radius:16px; border:1px solid rgba(255,255,255,.12)"/>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div>
+        <strong>Printable Joystick</strong><br/>
+        <p class="small" id="cookieStatus" aria-live="polite">Analytics cookies: disabled.</p>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <ul>
+          <li><a href="privacy.html">Privacy notice</a></li>
+          <li><a href="license.html">License terms</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="accessibility.html">Accessibility statement</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="copyright.html">Copyright & media licenses</a></li>
+          <li><a href="about.html">About our brand</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="cookieBanner" class="cookie-banner" aria-labelledby="cookieTitle">
+    <div>
+      <div class="badge" id="cookieTitle">Cookies</div>
+      <p class="small">
+        We use <strong>necessary storage</strong> for cart and consent.
+        You can accept or decline analytics cookies.
+      </p>
+      <p class="small">See: <a href="privacy.html">Privacy notice</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn secondary" type="button" data-consent="decline">Decline analytics</button>
+      <button class="btn" type="button" data-consent="accept">Accept analytics</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

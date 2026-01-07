@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Printable Joystick."/>
+  <title>Privacy | Printable Joystick</title>
+  <link rel="icon" href="assets/shape_mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Printable Joystick logo">
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="#1f2a44" />
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <rect x="30" y="18" width="4" height="18" rx="2" fill="#4dd7c8"/>
+  <circle cx="32" cy="16" r="8" fill="#4dd7c8"/>
+  <circle cx="44" cy="43" r="5" fill="#ffcc66"/>
+  <circle cx="24" cy="43" r="5" fill="rgba(255,255,255,.22)"/>
+</svg></span>
+        <span>Printable Joystick</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="accessibility.html">Accessibility</a></li>
+        <li><a href="license.html">License</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="imprint.html">Imprint</a></li>
+        <li><a href="copyright.html">Copyright & Licenses</a></li>
+        <li><a class="btn ghost" href="cart.html" aria-label="Open cart">Cart (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <div id="liveRegion" class="visually-hidden" aria-live="polite"></div>
+
+<div class="card padded">
+  <h2 style="margin-top:0">Controller</h2>
+  <p>
+    Pannalgorin Interactive<br/>
+    Kerikeri, New Zealand<br/>
+    Email: notgonnagive@avalid-email.com
+  </p>
+
+  <h2>General Information</h2>
+  <p>
+    We process personal data only when we have a legal basis under the GDPR and applicable
+    Austrian law (in particular the Austrian Data Protection Act, Datenschutzgesetz – DSG).
+    If we must retain certain records due to legal obligations, legal basis: Art. 6(1)(c) GDPR.
+  </p>
+
+  <h2>What data we process</h2>
+  <table class="table" aria-label="Privacy data table">
+    <thead>
+      <tr><th scope="col">Process</th><th scope="col">Data</th><th scope="col">Purpose</th><th scope="col">Legal basis (GDPR)</th><th scope="col">Retention</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cart (local storage)</td>
+        <td>Product identifiers, counts, quantities</td>
+        <td>To remember your cart</td>
+        <td>Necessary for requested service / legitimate interest Article 6(1)(f) GDPR.</td>
+        <td>Until you clear browser storage</td>
+      </tr>
+      <tr>
+        <td>Cookie consent (local storage)</td>
+        <td>Your consent choice + timestamp</td>
+        <td>Store your preference</td>
+        <td>§ 165(3) Telekommunikationsgesetz 2021 (TKG 2021) together with Art. 6(1)(b)</td>
+        <td>Until you clear browser storage</td>
+      </tr>
+      <tr>
+        <td>Contact form</td>
+        <td>Name, email, message</td>
+        <td>Respond to inquiries / simulate order request</td>
+        <td>Art. 6(1)(b) GDPR (steps prior to entering a contract) where your request relates
+          to a purchase; otherwise Art. 6(1)(f) GDPR (our legitimate interest in handling enquiries)</td>
+        <td>Until thread/issue is not solved or for maximum of 3 months</td>
+      </tr>
+      <tr>
+        <td>Analytics</td>
+        <td>Page view counter</td>
+        <td>Measure site usage</td>
+        <td>§ 165(3) TKG 2021 + Art. 6(1)(a) GDPR, and you can withdraw consent at any time.</td>
+        <td>Until you clear browser storage</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Cookies and similar technologies</h2>
+  <p>
+    This site uses browser storage (localStorage) for cart and consent. Analytics is anonymous and only “enabled” after your consent.
+  </p>
+
+  <h2>Your rights</h2>
+  <ul>
+    <li>As a data subject, you have the rights under the GDPR, including the right of access,
+      rectification, erasure, restriction, data portability, and the right to object to processing
+      based on legitimate interests. If processing is based on consent, you may withdraw your consent
+      at any time with effect for the future.</li>
+
+      <li>Right to lodge a complaint in Austria:
+      If you believe that the processing of your personal data violates data protection law,
+        you can lodge a complaint with the Austrian supervisory authority, the Österreichische
+        Datenschutzbehörde (DSB), Barichgasse 40–42, 1030 Vienna, Austria.</li>
+  </ul>
+
+  <h2>How to withdraw consent</h2>
+  <p><button class="btn secondary" type="button" id="resetConsent">Reset cookie consent</button></p>
+
+  <h2>Processors / third parties</h2>
+  <p class="small">
+    On this site we do not send data to third parties.
+  </p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("resetConsent");
+    if(!btn) return;
+    btn.addEventListener("click", () => {
+      localStorage.removeItem("pj_cookie_consent_v1");
+      alert("Consent reset. Reload the page to see the banner again.");
+    });
+  });
+</script>
+
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div>
+        <strong>Printable Joystick</strong><br/>
+        <p class="small" id="cookieStatus" aria-live="polite">Analytics cookies: disabled.</p>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <ul>
+          <li><a href="privacy.html">Privacy notice</a></li>
+          <li><a href="license.html">License terms</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="accessibility.html">Accessibility statement</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="copyright.html">Copyright & media licenses</a></li>
+          <li><a href="about.html">About our brand</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="cookieBanner" class="cookie-banner" aria-labelledby="cookieTitle">
+    <div>
+      <div class="badge" id="cookieTitle">Cookies</div>
+      <p class="small">
+        We use <strong>necessary storage</strong> for cart and consent.
+        You can accept or decline analytics cookies.
+      </p>
+      <p class="small">See: <a href="privacy.html">Privacy notice</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn secondary" type="button" data-consent="decline">Decline analytics</button>
+      <button class="btn" type="button" data-consent="accept">Accept analytics</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

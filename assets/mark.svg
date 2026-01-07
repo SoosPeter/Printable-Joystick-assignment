@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-label="Printable Joystick Device mark">
+  <rect x="10" y="10" width="500" height="140" rx="22" fill="rgba(17,26,46,.92)" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <g transform="translate(32,32)">
+    <rect x="0" y="55" width="150" height="55" rx="20" fill="#1f2a44"/>
+    <rect x="0" y="55" width="150" height="55" rx="20" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="3"/>
+    <rect x="65" y="10" width="10" height="54" rx="5" fill="#4dd7c8"/>
+    <circle cx="70" cy="8" r="18" fill="#4dd7c8"/>
+    <circle cx="115" cy="85" r="12" fill="#ffcc66"/>
+  </g>
+  <text x="200" y="70" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="900" fill="#f2f5ff">PRINTABLE</text>
+  <text x="230" y="120" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="900" fill="#f2f5ff">JOYSTICK</text>
+</svg>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Printable Joystick."/>
+  <title>Contact | Printable Joystick</title>
+  <link rel="icon" href="assets/shape_mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Printable Joystick logo">
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="#1f2a44" />
+  <rect x="14" y="34" width="36" height="18" rx="8" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <rect x="30" y="18" width="4" height="18" rx="2" fill="#4dd7c8"/>
+  <circle cx="32" cy="16" r="8" fill="#4dd7c8"/>
+  <circle cx="44" cy="43" r="5" fill="#ffcc66"/>
+  <circle cx="24" cy="43" r="5" fill="rgba(255,255,255,.22)"/>
+</svg></span>
+        <span>Printable Joystick</span>
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="accessibility.html">Accessibility</a></li>
+        <li><a href="license.html">License</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="imprint.html">Imprint</a></li>
+        <li><a href="copyright.html">Copyright & Licenses</a></li>
+        <li><a class="btn ghost" href="cart.html" aria-label="Open cart">Cart (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <div id="liveRegion" class="visually-hidden" aria-live="polite"></div>
+    
+<h1>Contact</h1>
+<div class="card padded">
+  <h2 style="margin-top:0">Get in touch</h2>
+
+  <form id="contactForm" novalidate>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" name="name" autocomplete="name" required/>
+      <div class="small" id="nameErr" aria-live="polite"></div>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required/>
+      <div class="small" id="emailErr" aria-live="polite"></div>
+    </div>
+
+    <div>
+      <label for="topic">Topic</label>
+      <select id="topic" name="topic" required>
+        <option value="">Choose…</option>
+        <option>Order request (mock)</option>
+        <option>Accessibility feedback</option>
+        <option>Privacy question</option>
+        <option>Other</option>
+      </select>
+      <div class="small" id="topicErr" aria-live="polite"></div>
+    </div>
+
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <div class="small" id="msgErr" aria-live="polite"></div>
+    </div>
+
+    <fieldset>
+      <legend>Consent</legend>
+      <div>
+        <input type="checkbox" id="consent" required/>
+        <label for="consent">I agree that my data is processed to answer this request.</label>
+      </div>
+      <div class="small" id="consentErr" aria-live="polite"></div>
+    </fieldset>
+
+    <button class="btn" type="submit">Send</button>
+    <p id="formStatus" class="small" aria-live="polite"></p>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("formStatus");
+    const fields = [
+      ["name","nameErr", v => v.trim().length > 1 || "Please enter your name."],
+      ["email","emailErr", v => /.+@.+\..+/.test(v) || "Please enter a valid email address."],
+      ["topic","topicErr", v => v.trim().length > 0 || "Please choose a topic."],
+      ["message","msgErr", v => v.trim().length > 10 || "Please enter a message (min 10 characters)."],
+    ];
+    function setErr(id, msg){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.textContent = msg || "";
+      el.style.color = msg ? "#fbbf24" : "";
+    }
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let ok = true;
+      fields.forEach(([fid,eid,test]) => {
+        const v = document.getElementById(fid).value || "";
+        const res = test(v);
+        if(res !== true){ ok = false; setErr(eid, res); }
+        else setErr(eid, "");
+      });
+      const consent = document.getElementById("consent");
+      if(!consent.checked){ ok=false; setErr("consentErr","Please check the consent box."); }
+      else setErr("consentErr","");
+
+      if(ok){
+        status.textContent = "Thanks! Your message was sent.";
+        form.reset();
+      } else {
+        status.textContent = "Please fix the highlighted fields.";
+      }
+    });
+  });
+</script>
+
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div>
+        <strong>Printable Joystick</strong><br/>
+        <p class="small" id="cookieStatus" aria-live="polite">Analytics cookies: disabled.</p>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <ul>
+          <li><a href="privacy.html">Privacy notice</a></li>
+          <li><a href="license.html">License terms</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="accessibility.html">Accessibility statement</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="copyright.html">Copyright & media licenses</a></li>
+          <li><a href="about.html">About our brand</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="cookieBanner" class="cookie-banner" aria-labelledby="cookieTitle">
+    <div>
+      <div class="badge" id="cookieTitle">Cookies (mock)</div>
+      <p class="small">
+        We use <strong>necessary storage</strong> for cart and consent.
+        You can accept or decline analytics cookies.
+      </p>
+      <p class="small">See: <a href="privacy.html">Privacy notice</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn secondary" type="button" data-consent="decline">Decline analytics</button>
+      <button class="btn" type="button" data-consent="accept">Accept analytics</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
